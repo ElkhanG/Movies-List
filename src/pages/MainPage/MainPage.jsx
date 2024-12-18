@@ -1,3 +1,4 @@
+// src/pages/MainPage/MainPage.jsx
 import React, { useState, useEffect } from 'react';
 import './MainPage.css';
 import Header from '../../components/Header/Header';
@@ -12,6 +13,8 @@ const MainPage = () => {
     const [isSaving, setIsSaving] = useState(false);
     const [savedListId, setSavedListId] = useState(null);
     const [listTitle, setListTitle] = useState('My Movie List');
+
+    const isLocked = Boolean(savedListId);
 
     const defaultImdbIDs = ['tt4158110', 'tt0903747', 'tt0773262', 'tt3896198', 'tt0137523', 'tt0816692', 'tt0088763'];
 
@@ -53,6 +56,10 @@ const MainPage = () => {
     };
 
     const handleAddToFavorites = (movie) => {
+        if (isLocked) {
+            alert('Cannot add movies to a saved list.');
+            return;
+        }
         if (favorites.find((fav) => fav.imdbID === movie.imdbID)) {
             alert(`${movie.Title} is already in your favorites!`);
             return;
@@ -61,6 +68,10 @@ const MainPage = () => {
     };
 
     const handleRemoveFavorite = (imdbID) => {
+        if (isLocked) {
+            alert('Cannot remove movies from a saved list.');
+            return;
+        }
         const updatedFavorites = favorites.filter((movie) => movie.imdbID !== imdbID);
         setFavorites(updatedFavorites);
     };
@@ -112,9 +123,9 @@ const MainPage = () => {
                     </div>
                     <div className="main-page__movies">
                         {searchResults.length > 0 ? (
-                            <Movies movies={searchResults} onAdd={handleAddToFavorites} />
+                            <Movies movies={searchResults} onAdd={handleAddToFavorites} isLocked={isLocked} />
                         ) : (
-                            <Movies movies={defaultMovies} onAdd={handleAddToFavorites} />
+                            <Movies movies={defaultMovies} onAdd={handleAddToFavorites} isLocked={isLocked} />
                         )}
                     </div>
                 </section>
@@ -127,6 +138,7 @@ const MainPage = () => {
                         savedListId={savedListId}
                         listTitle={listTitle}
                         setListTitle={setListTitle}
+                        isLocked={isLocked}
                     />
                 </aside>
             </main>

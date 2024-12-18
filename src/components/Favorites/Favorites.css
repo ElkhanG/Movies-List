@@ -1,17 +1,16 @@
-@import '../../variables.css';
-
 .favorites {
     box-sizing: border-box;
     background-color: var(--color-card-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .favorites__name {
     width: 100%;
     font-size: 16px;
-    padding: 10px 12px;
+    padding: 10px 6px;
     border: 1px solid var(--color-input-border);
     border-radius: 4px;
     margin-bottom: 20px;
@@ -21,6 +20,13 @@
 .favorites__name:focus {
     border-color: var(--color-accent);
     outline: none;
+}
+
+.favorites__name:disabled {
+    background-color: #e2e8f0; 
+    color: #a0aec0; 
+    cursor: not-allowed;
+    width: 90%;
 }
 
 .favorites__list {
@@ -55,8 +61,106 @@
     background-color: var(--color-accent);
 }
 
-.favorites__save-button, .favorites__link {
+.favorites__save-button,
+.favorites__link {
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    background-color: var(--color-button);
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    text-decoration: none;
+    display: block;
+}
+
+.favorites__save-button:hover:not(:disabled) {
+    background-color: var(--color-button-hover);
+}
+
+.favorites__save-button:disabled {
+    background-color: var(--color-input-border);
+    cursor: not-allowed;
+}
+
+.favorites__link {
+    background-color: var(--color-accent);
+    margin-top: 10px;
+}
+
+.favorites__link:hover {
+    background-color: var(--color-primary);
+}
+
+.favorites {
+    box-sizing: border-box;
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
+}
+
+.favorites__name {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 6px;
+    border: 1px solid var(--color-input-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: border-color var(--transition-speed);
+}
+
+.favorites__name:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.favorites__name:disabled {
+    background-color: #e2e8f0; 
+    color: #a0aec0; 
+    cursor: not-allowed;
+    width: 90%;
+}
+
+.favorites__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.favorites__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-input-border);
+}
+
+.favorites__item:last-child {
+    border-bottom: none;
+}
+
+.favorites__remove-button {
+    background-color: var(--color-button-hover);
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.favorites__remove-button:hover {
+    background-color: var(--color-accent);
+}
+
+.favorites__save-button,
+.favorites__link {
+    width: 90%;
     text-align: center;
     padding: 10px;
     border: none;
