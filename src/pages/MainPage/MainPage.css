@@ -1,0 +1,35 @@
+@import '../../variables.css';
+
+.main-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    background-color: var(--color-background);
+}
+
+@media (min-width: 768px) {
+    .main-page__content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.main-page__main-section {
+    flex: 2;
+}
+
+.main-page__search-box {
+    margin-bottom: 30px;
+}
+
+.main-page__movies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-page__favorites {
+    flex: 1;
+    max-width: 350px;
+}

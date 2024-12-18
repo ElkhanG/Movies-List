@@ -1,0 +1,68 @@
+@import '../../variables.css';
+
+.list-page {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-page__title {
+    font-size: 32px;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.list-page__movies {
+    list-style: none;
+    padding: 0;
+}
+
+.list-page__movie-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-input-border);
+}
+
+.list-page__movie-item:last-child {
+    border-bottom: none;
+}
+
+.list-page__movie-poster {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.list-page__movie-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-page__movie-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: var(--color-text);
+}
+
+.list-page__movie-info a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 16px;
+    transition: color var(--transition-speed);
+}
+
+.list-page__movie-info a:hover {
+    color: var(--color-accent);
+}
+
+.list-page__return-button {
+    margin-top: 30px;
+    text-align: center;
+}

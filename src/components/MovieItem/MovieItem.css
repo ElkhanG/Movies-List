@@ -1,0 +1,49 @@
+@import '../../variables.css';
+
+.movie-item {
+    display: flex;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.movie-item:hover {
+    transform: translateY(-5px);
+}
+
+.movie-item__poster {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.movie-item__info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.movie-item__title {
+    font-size: 18px;
+    color: var(--color-text);
+    margin: 0 0 10px 0;
+}
+
+.movie-item__add-button {
+    border: none;
+    background-color: var(--color-button);
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.movie-item__add-button:hover {
+    background-color: var(--color-button-hover);
+}

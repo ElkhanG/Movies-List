@@ -1,0 +1,14 @@
+@import '../../variables.css';
+
+.header {
+    background: var(--color-header-bg);
+    padding: 20px;
+    text-align: center;
+}
+
+.header__title {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-header-text);
+    font-size: 36px;
+    margin: 0;
+}
