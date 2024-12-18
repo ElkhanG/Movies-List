@@ -1,4 +1,3 @@
-// src/pages/MainPage/MainPage.jsx
 import React, { useState, useEffect } from 'react';
 import './MainPage.css';
 import Header from '../../components/Header/Header';
