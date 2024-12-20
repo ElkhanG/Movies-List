@@ -1,14 +1,29 @@
 :root {
-    --color-primary: #2D3748; /* Dark Slate */
-    --color-secondary: #4A5568; /* Slate Gray */
-    --color-accent: #ECC94B; /* Amber */
-    --color-background: #F7FAFC; /* Gray 50 */
-    --color-text: #1A202C; /* Gray 900 */
-    --color-button: #3182CE; /* Blue */
-    --color-button-hover: #2B6CB0; /* Darker Blue */
-    --color-input-border: #CBD5E0; /* Gray 300 */
-    --color-card-bg: #FFFFFF; /* White */
-    --color-header-bg: #2D3748; /* Dark Slate */
-    --color-header-text: #FFFFFF; /* White */
-    --transition-speed: 0.3s;
+    --color-primary: #e50914; /* Netflix Red */
+    --color-secondary: #6D6D6D; /* Slate Gray */
+    --color-accent: #ffffff; /* White for highlights */
+
+    --color-background: #141414; /* Netflix Black */
+    --color-card-bg: #222222; /* Dark Gray for cards */
+
+    --color-text: #ffffff; 
+    --color-text-secondary: #b3b3b3; 
+
+    --color-button: #e50914; 
+    --color-button-hover: #bf0811; 
+
+    --color-input-border: #333333;
+    --color-input-focus: #e50914; 
+
+    --color-header-bg: #141414; 
+    --color-header-text: #ffffff;
+
+    --transition-speed: 0.3s; 
+
+    --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+    --gradient-primary: linear-gradient(90deg, #141414, #222222);
+    --gradient-highlight: linear-gradient(45deg, #e50914, #bf0811);
 }

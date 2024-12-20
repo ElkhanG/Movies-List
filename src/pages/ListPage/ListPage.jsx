@@ -35,9 +35,10 @@ const ListPage = () => {
 
         const fetchMoviesDetails = async (imdbIDs) => {
             const apiKey = process.env.REACT_APP_OMDB_API_KEY;
+            console.log(apiKey)
             try {
                 const fetchPromises = imdbIDs.map(id =>
-                    fetch(`https://www.omdbapi.com/?i=${id}&apikey=7cddddcd`)
+                    fetch(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`)
                         .then(response => response.json())
                 );
                 const moviesData = await Promise.all(fetchPromises);

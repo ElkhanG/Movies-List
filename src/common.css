@@ -1,41 +1,149 @@
-/* Color palette https://coolors.co/ffeedb-e63946-6a8d73-000807-496ddb */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body, button, input {
-    font-family: 'Roboto', 'Helvetica', sans-serif;
-    color: #000807;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+/* Color Palette: https://coolors.co/ffeedb-e63946-6a8d73-000807-496ddb */
+:root {
+    --color-bg: #141414;
+    --color-text: #ffffff;
+    --color-primary: #e50914;
+    --color-secondary: #6a8d73;
+    --color-button: #e50914;
+    --color-button-hover: #bf0811;
+    --color-button-alt: #ffffff;
+    --color-button-alt-hover: #f3f3f3;
+    --transition-speed: 0.3s;
 }
 
+body, button, input {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* Button Styles */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
-    background-color: var(--color-button);
-    color: #FFFFFF;
-    text-decoration: none;
+    padding: 12px 24px;
     font-size: 16px;
     font-weight: 500;
+    text-transform: uppercase;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-    background-color: var(--color-button-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+/* Primary Button (Red) */
+.btn--primary {
+    background-color: var(--color-button);
+    color: var(--color-text);
 }
 
-.btn:active {
+.btn--primary:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn--primary:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Secondary Button (White with Red Border) */
+.btn--secondary {
+    background-color: var(--color-button-alt);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-button-alt-hover);
+    color: var(--color-button-hover);
+    border-color: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn--secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus Style for Accessibility */
 .btn:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.5);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.5);
+}
+
+/* Global Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('images/image.jpg'); /* Path to the image in the public folder */
+    background-size: cover; /* Ensures the image covers the viewport */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    font-family: 'Roboto', sans-serif; /* Optional: apply a modern font */
+    color: #ffffff; /* Text color for better readability */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: -1; /* Ensures the overlay stays behind other content */
 }

@@ -3,3 +3,15 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/background-image.jpeg'); /* Path to your image in the public folder */
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  font-family: 'Roboto', sans-serif; /* Optional, apply a modern font */
+  color: #ffffff; /* Ensures text is readable on a dark background */
+}

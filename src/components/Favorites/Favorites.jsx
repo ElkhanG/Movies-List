@@ -17,7 +17,7 @@ const Favorites = ({
             value={listTitle}
             onChange={(e) => setListTitle(e.target.value)}
             className="favorites__name" 
-            placeholder="List Title"
+            placeholder="Enter List Title"
             disabled={isLocked} 
         />
         
