@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ onScrollToFAQ }) => {
   const [language, setLanguage] = useState("English");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
@@ -40,7 +40,11 @@ const Header = () => {
         {/* Menu Items */}
         <ul className="navbar__menu">
           <li><a href="/about">About</a></li>
-          <li><a href="/faq">FAQ</a></li>
+          <li>
+            <li className="navbar-link" onClick={onScrollToFAQ}>
+              FAQ
+            </li>
+          </li>
           <li><a href="/contact">Contact</a></li>
         </ul>
 

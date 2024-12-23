@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './MainPage.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import Movies from '../../components/Movies/Movies';
 import Favorites from '../../components/Favorites/Favorites';
+import FAQ from '../../components/FAQ/FAQ';
 
 const MainPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -15,9 +16,25 @@ const MainPage = () => {
   const [savedListId, setSavedListId] = useState(null);
   const [listTitle, setListTitle] = useState('My Movie List');
 
+  const faqRef = useRef(null); // Reference for the FAQ section
+
   const isLocked = Boolean(savedListId);
 
-  const defaultImdbIDs = ['tt4158110', 'tt0903747', 'tt0773262', 'tt3896198', 'tt0137523', 'tt0816692', 'tt0088763', 'tt0111161', 'tt32252772'];
+  const defaultImdbIDs = [
+    'tt4158110', // Avengers
+    'tt0903747', // Breaking Bad
+    'tt0773262', // Dexter
+    'tt3896198', // Guardians of the Galaxy
+    'tt0137523', // Fight Club
+    'tt0816692', // Interstellar
+    'tt0088763', // Back to the Future
+    'tt0111161', // Shawshank Redemption
+    'tt32252772', // Dexter: New Blood
+  ];
+
+  const scrollToFAQ = () => {
+    faqRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const fetchDefaultMovies = async () => {
@@ -119,53 +136,56 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      <ToastContainer 
-      position="top-right"
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="dark"/>
-      <Header />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <Header onScrollToFAQ={scrollToFAQ} />
       <section className="hero-section">
         <div className="hero-content">
           <h1>Discover Your Next Favorite Movie</h1>
           <p>Personalized recommendations, curated lists, and insights based on your movie choices.</p>
-          <div className="hero-buttons">
-            <button className="hero-button primary">Get Started</button>
-            <button className="hero-button secondary">Learn More</button>
-          </div>
         </div>
       </section>
       <main className="main-page__content">
-        <section className="main-page__main-section">
-          <div className="main-page__search-box">
-            <SearchBox onSearch={handleSearch} />
-          </div>
-          <div className="main-page__movies">
-            {searchResults.length > 0 ? (
-              <Movies movies={searchResults} onAdd={handleAddToFavorites} isLocked={isLocked} />
-            ) : (
-              <Movies movies={defaultMovies} onAdd={handleAddToFavorites} isLocked={isLocked} />
-            )}
-          </div>
+        <div className="main-page__layout">
+          <section className="main-page__main-section">
+            <div className="main-page__search-box">
+              <SearchBox onSearch={handleSearch} />
+            </div>
+            <div className="main-page__movies">
+              {searchResults.length > 0 ? (
+                <Movies movies={searchResults} onAdd={handleAddToFavorites} />
+              ) : (
+                <Movies movies={defaultMovies} onAdd={handleAddToFavorites} />
+              )}
+            </div>
+          </section>
+          <aside className="main-page__favorites">
+            <Favorites
+              movies={favorites}
+              onRemove={handleRemoveFavorite}
+              onSave={handleSaveList}
+              isSaving={isSaving}
+              savedListId={savedListId}
+              listTitle={listTitle}
+              setListTitle={setListTitle}
+              isLocked={isLocked}
+            />
+          </aside>
+        </div>
+        {/* FAQ Section Below Both Movies and Favorites */}
+        <section className="faq-wrapper">
+          <FAQ ref={faqRef} />
         </section>
-        <aside className="main-page__favorites">
-          <Favorites
-            movies={favorites}
-            onRemove={handleRemoveFavorite}
-            onSave={handleSaveList}
-            isSaving={isSaving}
-            savedListId={savedListId}
-            listTitle={listTitle}
-            setListTitle={setListTitle}
-            isLocked={isLocked}
-          />
-        </aside>
       </main>
     </div>
   );
