@@ -1,0 +1,21 @@
+.features-section {
+    padding: 50px 20px;
+    background-color: #141414; /* Netflix dark background */
+    color: white;
+    text-align: center;
+  }
+  
+  .features-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  
+  .features-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  

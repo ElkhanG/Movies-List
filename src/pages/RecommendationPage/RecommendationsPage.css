@@ -1,0 +1,159 @@
+/* General Styling */
+.recommendations-page {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    background: url('YOUR_BACKGROUND_IMAGE_URL') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  
+  .recommendations-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #e50914;
+  }
+  
+  .recommendations-page p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+  
+  /* Quiz Container */
+  .quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Quiz Question */
+  .quiz-question {
+    margin-bottom: 30px;
+  }
+  
+  .quiz-question h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-left: 4px solid #e50914;
+    padding-left: 10px;
+  }
+  
+  /* Quiz Options */
+  .quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .quiz-option {
+    flex: 1 1 calc(33.333% - 10px);
+    background: rgba(51, 51, 51, 0.9);
+    color: #ffffff;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .quiz-option:hover {
+    background-color: #e50914;
+    transform: translateY(-5px);
+  }
+  
+  .quiz-option.selected {
+    background: #e50914;
+    color: #ffffff;
+    border-color: #bf0811;
+  }
+  
+  /* Recommendation Button */
+  .btn--recommend {
+    display: block;
+    margin: 30px auto;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .btn--recommend:hover {
+    background-color: #bf0811;
+    transform: scale(1.05);
+  }
+  
+  .btn--recommend:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Recommendation Result */
+  .recommendation-result {
+    max-width: 800px;
+    margin: 40px auto 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
+  
+  .recommendation-result h2 {
+    font-size: 2rem;
+    color: #e50914;
+    margin-bottom: 15px;
+  }
+  
+  .recommendation-result p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #ffffff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .quiz-option {
+      flex: 1 1 calc(50% - 10px);
+      font-size: 0.9rem;
+    }
+  
+    .btn--recommend {
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+  
+    .recommendation-result h2 {
+      font-size: 1.8rem;
+    }
+  
+    .recommendation-result p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .quiz-option {
+      flex: 1 1 100%;
+      font-size: 0.9rem;
+    }
+  }
+  

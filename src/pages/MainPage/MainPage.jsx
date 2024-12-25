@@ -7,6 +7,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import Movies from '../../components/Movies/Movies';
 import Favorites from '../../components/Favorites/Favorites';
 import FAQ from '../../components/FAQ/FAQ';
+import FeaturesSection from '../../components/FlipCard/FeatureSection';
 
 const MainPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -186,6 +187,7 @@ const MainPage = () => {
         <section className="faq-wrapper">
           <FAQ ref={faqRef} />
         </section>
+        <FeaturesSection />
       </main>
     </div>
   );

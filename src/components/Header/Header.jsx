@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = ({ onScrollToFAQ }) => {
-  const [language, setLanguage] = useState("English");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const [language, setLanguage] = useState("English");
 
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
+  const toggleLanguageMenu = () => {
+    setLanguageMenuOpen(!languageMenuOpen);
+  };
+
+  const selectLanguage = (selectedLanguage) => {
+    setLanguage(selectedLanguage);
+    setLanguageMenuOpen(false); // Close menu after selection
   };
 
   useEffect(() => {
@@ -40,27 +46,34 @@ const Header = ({ onScrollToFAQ }) => {
         {/* Menu Items */}
         <ul className="navbar__menu">
           <li><a href="/about">About</a></li>
-          <li>
-            <li className="navbar-link" onClick={onScrollToFAQ}>
-              FAQ
-            </li>
-          </li>
+          <li className="navbar-link" onClick={onScrollToFAQ}>FAQ</li>
           <li><a href="/contact">Contact</a></li>
         </ul>
 
         {/* Controls */}
         <div className="navbar__controls">
-          <div className="navbar__language">
-            <select
-              className="language-selector"
-              value={language}
-              onChange={handleLanguageChange}
+          <div className="navbar__language" onClick={toggleLanguageMenu}>
+            <div className="language-selector">
+              {language}
+              <span className={`dropdown-icon ${languageMenuOpen ? "open" : ""}`}>▼</span>
+            </div>
+            <div
+              className={`language-dropdown ${
+                languageMenuOpen ? "language-dropdown--open" : ""
+              }`}
             >
-              <option value="English">English</option>
-              <option value="Azerbaijani">Azerbaijani</option>
-            </select>
+              <div className="language-item" onClick={() => selectLanguage("English")}>
+                English
+              </div>
+              <div className="language-item" onClick={() => selectLanguage("Azerbaijani")}>
+                Azerbaijani
+              </div>
+              <div className="language-item" onClick={() => selectLanguage("Spanish")}>
+                Spanish
+              </div>
+            </div>
           </div>
-          <button className="btn btn--signin">Sign In</button>
+          <a href="/signin"><button className="btn btn--signin">Sign In</button></a>
         </div>
       </nav>
     </header>
