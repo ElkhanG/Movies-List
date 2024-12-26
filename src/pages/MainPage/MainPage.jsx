@@ -154,8 +154,17 @@ const MainPage = () => {
         <div className="hero-content">
           <h1>Discover Your Next Favorite Movie</h1>
           <p>Personalized recommendations, curated lists, and insights based on your movie choices.</p>
+          <div className="hero-buttons">
+            <button
+              className="btn btn--recommendations"
+              onClick={() => (window.location.href = '/recommendation')}
+            >
+              Get Movie Recommendations
+            </button>
+          </div>
         </div>
       </section>
+
       <main className="main-page__content">
         <div className="main-page__layout">
           <section className="main-page__main-section">

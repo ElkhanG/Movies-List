@@ -7,6 +7,7 @@ import SignInPage from './pages/SignIn/SignIn';
 import AboutPage from './pages/AboutPage/AboutPage';
 import './reset.css';
 import './common.css';
+import RecommendationsPage from './pages/RecommendationPage/RecommendationsPage';
 
 const App = () => (
     <div className="app">
@@ -16,6 +17,7 @@ const App = () => (
             {/* Fallback Route */}
             <Route path="/signin" element={<SignInPage />} />
             <Route path='/about' element={<AboutPage />} />
+            <Route path='/recommendation' element={<RecommendationsPage />} />
             <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
         <Footer />

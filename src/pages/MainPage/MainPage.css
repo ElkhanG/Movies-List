@@ -139,3 +139,33 @@
     border-radius: 8px;
     width: 100%;
   }
+
+  .hero-buttons {
+    margin-top: 20px;
+  }
+  
+  .btn--recommendations {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .btn--recommendations:hover {
+    background-color: #bf0811;
+    transform: scale(1.05);
+  }
+  
+  .btn--recommendations:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+  }
+  
