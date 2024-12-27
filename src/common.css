@@ -6,7 +6,6 @@
     padding: 0;
   }
   
-/* Color Palette: https://coolors.co/ffeedb-e63946-6a8d73-000807-496ddb */
 :root {
     --color-bg: #141414;
     --color-text: #ffffff;
@@ -128,13 +127,13 @@ a:hover {
 body {
     margin: 0;
     padding: 0;
-    background-image: url('images/image.jpg'); /* Path to the image in the public folder */
-    background-size: cover; /* Ensures the image covers the viewport */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    font-family: 'Roboto', sans-serif; /* Optional: apply a modern font */
-    color: #ffffff; /* Text color for better readability */
+    background-image: url('images/image.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    font-family: 'Roboto', sans-serif; 
+    color: #ffffff; 
 }
 
 body::before {

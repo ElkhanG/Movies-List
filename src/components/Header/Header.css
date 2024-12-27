@@ -1,4 +1,7 @@
-/* Header Styles */
+/* -------------------------------- */
+/* Base Header & Navbar Styles      */
+/* -------------------------------- */
+
 .header {
   background: rgba(0, 0, 0, 0.8);
   padding: 15px 30px;
@@ -12,14 +15,12 @@
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Hidden State */
+/* Hidden/Visible states */
 .header.hidden {
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
 }
-
-/* Visible State */
 .header.visible {
   transform: translateY(0);
   opacity: 1;
@@ -34,7 +35,7 @@
   max-width: 1200px;
 }
 
-/* Logo */
+/* LOGO */
 .navbar__logo .header__title {
   font-size: 28px;
   font-weight: bold;
@@ -43,28 +44,14 @@
   text-decoration: none;
 }
 
-/* Menu */
+/* MENU */
 .navbar__menu {
   list-style: none;
-  display: flex;
+  display: flex; /* We'll override this in smaller screens */
   gap: 25px;
   margin: 0;
   padding: 0;
-}
-
-.navbar-link {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  color: #e50914;
-
+  transition: max-height 0.3s ease-in-out;
 }
 
 .navbar__menu li a {
@@ -75,27 +62,38 @@
   border-radius: 4px;
   transition: all 0.3s ease;
 }
-
 .navbar__menu li a:hover {
   color: #e50914;
   background-color: rgba(255, 255, 255, 0.1);
-  
 }
 
-/* Controls */
+/* FAQ link hovered, etc. */
+.navbar-link {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  color: #e50914;
+}
+
+/* CONTROLS (Language & Sign In) */
 .navbar__controls {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Enhanced Language Selector */
+/* LANGUAGE SELECTOR */
 .navbar__language {
   position: relative;
   cursor: pointer;
-  width: 130px; /* Fixed width to prevent shifting */
+  width: 130px;
 }
-
 .language-selector {
   background: rgba(51, 51, 51, 0.9);
   color: #ffffff;
@@ -107,24 +105,21 @@
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s ease;
-  width: 100%; /* Ensure consistent width */
+  width: 100%;
 }
-
 .language-selector:hover {
   background: rgba(68, 68, 68, 0.9);
 }
-
 .dropdown-icon {
   margin-left: 8px;
   font-size: 10px;
   transition: transform 0.3s;
 }
-
 .dropdown-icon.open {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
+/* LANGUAGE DROPDOWN */
 .language-dropdown {
   position: absolute;
   top: 40px;
@@ -138,15 +133,13 @@
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   z-index: 1000;
-  width: 100%; /* Matches the width of the selector */
+  width: 100%;
 }
-
 .language-dropdown--open {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
 }
-
 .language-item {
   padding: 10px 15px;
   color: #ffffff;
@@ -155,12 +148,11 @@
   transition: background 0.3s;
   text-align: center;
 }
-
 .language-item:hover {
   background: rgba(68, 68, 68, 0.9);
 }
 
-/* Sign In Button */
+/* SIGN IN BUTTON */
 .btn--signin {
   background-color: #e50914;
   color: #ffffff;
@@ -172,35 +164,95 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .btn--signin:hover {
   background-color: #bf0811;
 }
 
-/* Responsive Styles */
+/* HAMBURGER TOGGLE */
+.navbar__toggle {
+  display: none; 
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.navbar__toggle span {
+  background: #ffffff;
+  border-radius: 2px;
+  height: 3px;
+  width: 25px;
+}
+
+.navbar__menu--active {
+  display: flex !important;
+  flex-direction: column; 
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* ---------------------- */
+/* RESPONSIVE BREAKPOINTS */
+/* ---------------------- */
+
+/* For tablets, etc. (<= 768px) */
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
+  .navbar__toggle {
+    display: flex;
+  }
+
+  /* Hide the menu by default on mobile/tablets */
   .navbar__menu {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    display: none;
+  }
+  .navbar__menu--active {
+    display: flex !important;
   }
 
+  .navbar__menu li a {
+    font-size: 14px;
+  }
+  .navbar__toggle span {
+    width: 20px;
+  }
+
+  /* 
+    Hide the controls (Sign In & Language) 
+    for smaller resolutions
+  */
   .navbar__controls {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    display: none !important;
   }
+}
 
-  .navbar__language {
-    width: 100%; /* Full width for small screens */
+/* Smaller than 320px (extra tiny screens) */
+@media (max-width: 320px) {
+  .navbar__logo .header__title {
+    font-size: 22px;
   }
+  .navbar__menu li a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  .navbar__toggle span {
+    width: 18px;
+  }
+}
 
-  .language-dropdown {
-    width: 100%; /* Dropdown also matches full width */
+/* Very large screens >= 2000px */
+@media (min-width: 2000px) {
+  .navbar__logo .header__title {
+    font-size: 36px;
+  }
+  .navbar__menu li a {
+    font-size: 20px;
+    padding: 12px 16px;
+  }
+  .btn--signin {
+    font-size: 18px;
+    padding: 14px 28px;
   }
 }

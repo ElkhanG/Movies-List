@@ -221,19 +221,32 @@
   .movie-info p {
     text-align: center;
   }
+  .recommendations-page {
+    margin-top: 100px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 426px) {
   .quiz-option {
     flex: 1 1 100%;
     font-size: 0.9rem;
   }
 
   .movie-info h3 {
-    font-size: 1.2rem;
+    font-size: 0.6rem;
   }
 
   .movie-info p {
     font-size: 0.9rem;
+  }
+  .recommendations-page h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #e50914;
+  }
+
+  .recommendations-page {
+    margin-top: 100px;
   }
 }

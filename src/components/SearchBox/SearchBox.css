@@ -1,129 +1,217 @@
-/* Enhanced Search Box Styling */
+/* =======================================
+   SEARCH BOX STYLING (Wider Version)
+   ======================================= */
+
+/* Container */
 .main-page__search-box {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 0.8s ease-in-out;
-    transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.8s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.main-page__search-box:hover {
+  transform: scale(1.02);
+}
+
+/* Form Layout */
+.main-page__search-box__form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Increased default width on desktop */
+  width: 90%;            /* Use a percentage to be flexible up to large screens */
+  max-width: 1000px;     /* Increased from 800px to 1000px for a wider layout */
+  position: relative;
+}
+
+/* Input Wrapper */
+.main-page__search-box__input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon Styling */
+.main-page__search-box__icon {
+  position: absolute;
+  left: 12px;
+  font-size: 22px;
+  color: #ffffff;
+  opacity: 0.8;
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.main-page__search-box__icon:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: #ff6b6b;
+  opacity: 1;
+}
+
+/* Input Styling */
+.main-page__search-box__input {
+  width: 100%;
+  padding: 14px 16px 14px 50px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #333;
+  color: #fff;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-page__search-box__input:focus {
+  background: #444;
+  box-shadow: 0 0 8px #e50914, inset 0 1px 4px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.main-page__search-box__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* Submit Button */
+.main-page__search-box__submit {
+  padding: 12px 30px;
+  border: none;
+  background: #e50914;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.main-page__search-box__submit:hover:not(:disabled) {
+  background: #ff6b6b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.main-page__search-box__submit:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-page__search-box__submit:disabled {
+  background: #555;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Subtle Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .main-page__search-box:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Form Layout */
-  .main-page__search-box__form {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 800px;
-    max-width: 800px;
-    position: relative;
-  }
-  
-  /* Input Wrapper */
-  .main-page__search-box__input-wrapper {
-    position: relative;
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Icon Styling */
-  .main-page__search-box__icon {
-    position: absolute;
-    left: 12px;
-    font-size: 22px;
-    color: #ffffff;
-    opacity: 0.8;
-    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .main-page__search-box__icon:hover {
-    transform: scale(1.2) rotate(10deg);
-    color: #ff6b6b;
+  to {
     opacity: 1;
-  }
-  
-  /* Input Styling */
-  .main-page__search-box__input {
-    width: 100%;
-    padding: 14px 16px 14px 50px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    background: #333;
-    color: #fff;
-    transition: box-shadow 0.3s ease, background 0.3s ease;
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .main-page__search-box__input:focus {
-    background: #444;
-    box-shadow: 0 0 8px #e50914, inset 0 1px 4px rgba(0, 0, 0, 0.5);
-    outline: none;
-  }
-  
-  .main-page__search-box__input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    font-style: italic;
-  }
-  
-  /* Submit Button */
-  .main-page__search-box__submit {
-    padding: 12px 30px;
-    border: none;
-    background: #e50914;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-  }
-  
-  .main-page__search-box__submit:hover:not(:disabled) {
-    background: #ff6b6b;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-  }
-  
-  .main-page__search-box__submit:active {
     transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ----------------------------------
+   RESPONSIVE BREAKPOINTS
+   ---------------------------------- */
+
+/* 1) For devices <= 1024px (tablets/smaller laptops) */
+@media (max-width: 1024px) {
+  .main-page__search-box {
+    padding: 15px;
+  }
+
+  .main-page__search-box__form {
+    gap: 15px;
+    width: 95%;        
+    max-width: 800px;  /* Slightly smaller max-width for mid-size screens */
+  }
+
+  .main-page__search-box__input {
+    font-size: 15px;
+    padding: 12px 16px 12px 48px; /* Slightly narrower inside */
+  }
+
+  .main-page__search-box__submit {
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+}
+
+/* 2) For devices <= 768px (small tablets/landscape phones) */
+@media (max-width: 768px) {
+  .main-page__search-box__form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Button goes full width */
+  .main-page__search-box__submit {
+    width: 100%;
+  }
+}
+
+/* 3) For devices <= 425px (typical mobile phones) */
+@media (max-width: 425px) {
+  .main-page__search-box {
+    padding: 10px;
   }
   
-  .main-page__search-box__submit:disabled {
-    background: #555;
-    cursor: not-allowed;
-    box-shadow: none;
+  .main-page__search-box__icon {
+    font-size: 18px;  /* Slightly smaller icon */
+    left: 10px;
   }
-  
-  /* Subtle Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .main-page__search-box__input {
+    font-size: 14px;
+    padding: 10px 14px 10px 38px;
   }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .main-page__search-box__form {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .main-page__search-box__submit {
-      width: 100%;
-    }
+
+  .main-page__search-box__submit {
+    font-size: 14px;
+    padding: 10px 14px;
   }
-  
+}
+
+/* 4) For devices <= 320px (very small phones) */
+@media (max-width: 320px) {
+  .main-page__search-box__form {
+    width: 100%;
+    max-width: 280px;  /* Constrain further for very small screens */
+  }
+
+  .main-page__search-box__input {
+    font-size: 13px;
+    padding: 8px 12px 8px 34px;
+  }
+
+  .main-page__search-box__submit {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+/* 5) Very large screens (>= 2000px) */
+@media (min-width: 2000px) {
+  .main-page__search-box__form {
+    max-width: 1200px;  /* Widen even further on large screens */
+  }
+
+  .main-page__search-box__input {
+    font-size: 18px;
+  }
+
+  .main-page__search-box__submit {
+    font-size: 18px;
+    padding: 14px 40px;
+  }
+}

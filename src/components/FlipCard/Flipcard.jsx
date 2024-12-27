@@ -10,7 +10,7 @@ const FlipCard = ({ frontTitle, backContent, frontIcon }) => {
           <div className="card-icon">{frontIcon}</div>
           <h3 className="title">{frontTitle}</h3>
         </div>
-        
+
         {/* Back Side */}
         <div className="flip-card-back">
           <p>{backContent}</p>

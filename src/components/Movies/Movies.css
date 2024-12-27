@@ -1,7 +1,42 @@
-@import '../../variables.css';
+/* ==========================
+   MoviesGrid.css
+   ========================== */
 
-.movies {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
+   @import '../../variables.css'; /* If you have a variables file */
+
+   /* Base Grid for Movie Items */
+   .movies {
+     display: grid;
+     grid-gap: 20px;
+     margin-bottom: 40px; /* spacing before Favorites below */
+   }
+   
+   /* 1) Mobile (<= 425px): 1 column */
+   @media (max-width: 425px) {
+     .movies {
+       grid-template-columns: 1fr; /* Single column for small phones */
+     }
+   }
+   
+   /* 2) Tablets (<= 768px): 2 columns */
+   @media (min-width: 426px) and (max-width: 768px) {
+     .movies {
+       grid-template-columns: repeat(2, 1fr);
+     }
+   }
+   
+   /* 3) Larger screens (> 768px): auto-fill */
+   @media (min-width: 769px) {
+     .movies {
+       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     }
+   }
+   
+   /* 4) 2K (>= 2000px): maybe narrower max-width so it doesn't stretch too far */
+   @media (min-width: 2000px) {
+     .movies {
+       max-width: 1400px;
+       margin: 0 auto; /* center the grid */
+     }
+   }
+   

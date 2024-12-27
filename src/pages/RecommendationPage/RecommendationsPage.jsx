@@ -90,11 +90,9 @@ const RecommendationsPage = () => {
       const fullResponse = data.choices[0]?.message.content.trim();
       console.log('OpenAI Response:', fullResponse);
 
-      // Parse movie titles from the response
       const movieTitles = fullResponse.split(',').map((title) => title.trim()).slice(0, 3);
       const movieDetailsPromises = movieTitles.map((title) => fetchMovieDetails(title));
 
-      // Fetch movie details from OMDB
       const fetchedMovies = await Promise.all(movieDetailsPromises);
       setRecommendations(fetchedMovies.filter((movie) => movie !== null));
     } catch (error) {

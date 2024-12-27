@@ -17,20 +17,20 @@ const MainPage = () => {
   const [savedListId, setSavedListId] = useState(null);
   const [listTitle, setListTitle] = useState('My Movie List');
 
-  const faqRef = useRef(null); // Reference for the FAQ section
+  const faqRef = useRef(null); 
 
   const isLocked = Boolean(savedListId);
 
   const defaultImdbIDs = [
-    'tt4158110', // Avengers
-    'tt0903747', // Breaking Bad
-    'tt0773262', // Dexter
-    'tt3896198', // Guardians of the Galaxy
-    'tt0137523', // Fight Club
-    'tt0816692', // Interstellar
-    'tt0088763', // Back to the Future
-    'tt0111161', // Shawshank Redemption
-    'tt32252772', // Dexter: New Blood
+    'tt4158110', 
+    'tt0903747', 
+    'tt0773262', 
+    'tt3896198', 
+    'tt0137523', 
+    'tt0816692', 
+    'tt0088763', 
+    'tt0111161', 
+    'tt32252772', 
   ];
 
   const scrollToFAQ = () => {
@@ -166,38 +166,38 @@ const MainPage = () => {
       </section>
 
       <main className="main-page__content">
-        <div className="main-page__layout">
-          <section className="main-page__main-section">
-            <div className="main-page__search-box">
-              <SearchBox onSearch={handleSearch} />
-            </div>
-            <div className="main-page__movies">
-              {searchResults.length > 0 ? (
-                <Movies movies={searchResults} onAdd={handleAddToFavorites} />
-              ) : (
-                <Movies movies={defaultMovies} onAdd={handleAddToFavorites} />
-              )}
-            </div>
-          </section>
-          <aside className="main-page__favorites">
-            <Favorites
-              movies={favorites}
-              onRemove={handleRemoveFavorite}
-              onSave={handleSaveList}
-              isSaving={isSaving}
-              savedListId={savedListId}
-              listTitle={listTitle}
-              setListTitle={setListTitle}
-              isLocked={isLocked}
-            />
-          </aside>
-        </div>
-        {/* FAQ Section Below Both Movies and Favorites */}
-        <section className="faq-wrapper">
-          <FAQ ref={faqRef} />
-        </section>
-        <FeaturesSection />
-      </main>
+  <div className="main-page__layout">
+    <section className="main-page__main-section">
+      <div className="main-page__search-box">
+        <SearchBox onSearch={handleSearch} />
+      </div>
+      <div className="main-page__movies">
+        {searchResults.length > 0 ? (
+          <Movies movies={searchResults} onAdd={handleAddToFavorites} />
+        ) : (
+          <Movies movies={defaultMovies} onAdd={handleAddToFavorites} />
+        )}
+      </div>
+    </section>
+    <aside className="main-page__favorites">
+      <Favorites
+        movies={favorites}
+        onRemove={handleRemoveFavorite}
+        onSave={handleSaveList}
+        isSaving={isSaving}
+        savedListId={savedListId}
+        listTitle={listTitle}
+        setListTitle={setListTitle}
+        isLocked={isLocked}
+      />
+    </aside>
+  </div>
+  {/* FAQ Section */}
+  <section className="faq-wrapper">
+    <FAQ ref={faqRef} />
+  </section>
+  <FeaturesSection />
+</main>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
 import './SignIn.css';
-
+import Header from '../../components/Header/Header';
 const SignInPage = () => {
   return (
     <div className="signin-page">
+      <Header />
       <div className="signin-overlay">
         <form className="signin-form">
           <h2 className='sign-in-header'>Sign In</h2>

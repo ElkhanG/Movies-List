@@ -1,14 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header/Header'; // Include your Header component
+import Header from '../../components/Header/Header'; 
 import './AboutPage.css';
 
 const AboutPage = () => {
   return (
     <div className="about-page">
-      {/* Header Component */}
       <Header />
-
-      {/* About Page Content */}
       <div className="about-hero">
         <h1>About Us</h1>
         <p>
@@ -18,7 +15,6 @@ const AboutPage = () => {
       </div>
 
       <main className="about-content">
-        {/* Our Mission Section */}
         <section className="about-section">
           <h2>Our Mission</h2>
           <p>
@@ -28,7 +24,6 @@ const AboutPage = () => {
           </p>
         </section>
 
-        {/* What We Offer Section */}
         <section className="about-section">
           <h2>What We Offer</h2>
           <div className="offer-grid">
@@ -51,7 +46,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Location Section */}
         <section className="about-section">
           <h2>Where We Are Located</h2>
           <p>
@@ -74,7 +68,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Stay Updated Section */}
         <section className="about-section">
           <h2>Stay Updated</h2>
           <p>Subscribe to our newsletter for the latest updates, features, and recommendations!</p>
