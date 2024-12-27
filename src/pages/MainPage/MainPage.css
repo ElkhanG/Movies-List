@@ -1,35 +1,285 @@
-@import '../../variables.css';
-
-.main-page__content {
+/* General Page Styling */
+.main-page {
+    position: relative;
+    z-index: 1;
+    background: url('//example.com/path-to-your-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+  }
+  
+  .main-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+    z-index: -1;
+  }
+  
+  /* Hero Section */
+  .hero-section {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+    padding: 0 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .hero-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .hero-button.primary {
+    background-color: #e50914;
+    color: white;
+    border: none;
+  }
+  
+  .hero-button.primary:hover {
+    background-color: #bf0811;
+    transform: scale(1.05);
+  }
+  
+  .hero-button.secondary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .hero-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  .main-page__layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  /* Main Content */
+  .main-page__content {
+    /* display: flex; */
     flex-direction: column;
     gap: 40px;
     padding: 20px;
-    background-color: var(--color-background);
-}
-
-@media (min-width: 768px) {
+  }
+  
+  @media (min-width: 768px) {
     .main-page__content {
-        flex-direction: row;
-        justify-content: space-between;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 60px;
     }
-}
-
-.main-page__main-section {
-    flex: 2;
-}
-
-.main-page__search-box {
-    margin-bottom: 30px;
-}
-
-.main-page__movies {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.main-page__favorites {
+  }
+  
+  .main-page__main-section {
+    flex: 3;
+  }
+  
+  .main-page__favorites {
     flex: 1;
     max-width: 350px;
-}
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    .main-page__content {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .main-page__favorites {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  }
+  
+  .faq-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #141414;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .hero-buttons {
+    margin-top: 20px;
+  }
+  
+  .btn--recommendations {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .btn--recommendations:hover {
+    background-color: #bf0811;
+    transform: scale(1.05);
+  }
+  
+  .btn--recommendations:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+  }
+  
+
+  @media (max-width: 320px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+    }
+    .hero-button {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+    }
+    .hero-section {
+      min-height: 50vh;
+      margin-top: 100px; /* Slightly reduce height for small screens */
+    }
+  }
+  
+  /* 2) Small Phones (<= 425px) */
+  @media (max-width: 426px) {
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+    .hero-content p {
+      font-size: 1.05rem;
+    }
+    .hero-button {
+      padding: 10px 20px;
+    }
+    .hero-section {
+      min-height: 50vh;
+      margin-top: 120px; /* Slightly reduce height for small screens */
+    }
+  }
+  
+  /* 3) Tablets (<= 768px) */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.4rem;
+      margin: 0 auto;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+    }
+    .hero-button {
+      padding: 10px 22px;
+      font-size: 0.95rem;
+    }
+    
+      .main-page__layout {
+        flex-direction: column;
+      }
+    
+      .main-page__favorites {
+        order: 2; /* Ensure Favorites comes after the main section */
+        width: 100%; /* Take full width on small screens */
+        margin-top: 20px;
+        margin: 0 auto; /* Add some spacing */
+      }
+    
+    
+    .main-page__favorites {
+      flex: 1;
+      max-width: 350px;
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    .hero-section {
+      min-height: 50vh;
+      margin-top: 160px; /* Slightly reduce height for small screens */
+    }
+  }
+  
+  @media (max-width: 1025px) {
+    .hero-content h1 {
+      font-size: 3rem; 
+    }
+    
+      .main-page__layout {
+        flex-direction: column; /* Stack sections vertically */
+      }
+    
+      .main-page__favorites {
+        order: 2; /* Move favorites below the main content */
+        margin-top: 20px;
+        width: 100%; /* Adjust width to fit the smaller screen */
+        margin: 0 auto;
+      }
+    
+      .main-page__main-section {
+        order: 1;
+      
+    }
+  }
+ 
+  
+  /* 5) Large Screens (>= 2000px) */
+  @media (min-width: 2000px) {
+    .hero-content {
+      max-width: 1000px; /* Optionally expand content width */
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+    }
+    .hero-button {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+    }
+  }

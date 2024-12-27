@@ -1,0 +1,40 @@
+/* Features.css */
+
+.features-section {
+  padding: 50px 20px;
+  background-color: #141414;
+  color: white;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 
+Optionally add breakpoints if you want the features to stack differently on small devices.
+*/
+@media (max-width: 768px) {
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 2000px) {
+  .features-section {
+    padding: 70px 50px;
+  }
+  .features-title {
+    font-size: 2.5rem;
+  }
+}

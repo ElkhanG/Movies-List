@@ -1,0 +1,187 @@
+/* ==================================
+   FLIP CARD BASE STYLES
+   ================================== */
+
+/* Container holding the flip effect */
+.flip-card {
+  background-color: transparent;
+  width: 250px;   /* Default width (desktop) */
+  height: 300px;  /* Default height (desktop) */
+  perspective: 1000px; /* More = smaller 3D effect */
+  font-family: 'Roboto', sans-serif;
+  margin: 20px;
+}
+
+/* Inner wrapper to hold front/back sides */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Flip on hover (for desktop & pointer devices) */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back shared styles */
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+/* Front Side */
+.flip-card-front {
+  background: linear-gradient(135deg, #2d2d2d, #181818);
+  color: white;
+}
+.flip-card-front .card-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #e50914;
+}
+.flip-card-front h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Back Side */
+.flip-card-back {
+  background: linear-gradient(135deg, #181818, #2d2d2d);
+  color: white;
+  transform: rotateY(180deg);
+}
+.flip-card-back p {
+  font-size: 1rem;
+  padding: 10px 20px;
+  line-height: 1.5;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+/* Icon Hover */
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.card-icon:hover {
+  transform: scale(1.2);
+  color: #f40612;
+}
+
+/* ==================================
+   RESPONSIVE MEDIA QUERIES
+   ================================== */
+
+/* 1) VERY SMALL PHONES (<= 320px) */
+@media (max-width: 320px) {
+  .flip-card {
+    width: 160px;
+    height: 200px;
+    margin: 10px;
+  }
+  .flip-card-front .card-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .flip-card-front h3 {
+    font-size: 1rem;
+  }
+  .flip-card-back p {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+  }
+}
+
+/* 2) SMALL PHONES (<= 425px) */
+@media (max-width: 425px) {
+  .flip-card {
+    width: 180px;
+    height: 220px;
+    margin: 10px;
+  }
+  .flip-card-front .card-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+  }
+  .flip-card-front h3 {
+    font-size: 1.2rem;
+  }
+  .flip-card-back p {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+/* 3) TABLETS (<= 768px) */
+@media (max-width: 768px) {
+  .flip-card {
+    width: 200px;
+    height: 260px;
+    margin: 15px;
+  }
+  .flip-card-front .card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  .flip-card-front h3 {
+    font-size: 1.3rem;
+  }
+  .flip-card-back p {
+    font-size: 0.95rem;
+  }
+}
+
+/* 4) SMALL LAPTOPS (<= 1024px) */
+/* If you want to adjust for typical smaller laptops or iPads in landscape */
+@media (max-width: 1024px) {
+  .flip-card {
+    width: 220px;
+    height: 280px;
+    margin: 15px;
+  }
+  .flip-card-front .card-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+  }
+  .flip-card-front h3 {
+    font-size: 1.4rem;
+  }
+  .flip-card-back p {
+    font-size: 0.95rem;
+  }
+}
+
+/* 5) VERY LARGE SCREENS (>= 2000px) */
+@media (min-width: 2000px) {
+  .flip-card {
+    width: 350px;
+    height: 420px;
+    margin: 30px;
+  }
+  .flip-card-front .card-icon {
+    font-size: 70px;
+    margin-bottom: 25px;
+  }
+  .flip-card-front h3 {
+    font-size: 2rem;
+  }
+  .flip-card-back p {
+    font-size: 1.2rem;
+  }
+}

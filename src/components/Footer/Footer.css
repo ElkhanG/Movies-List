@@ -1,0 +1,112 @@
+.footer {
+    background-color: #141414; /* Matches Netflix's dark theme */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .footer__logo {
+    font-size: 2rem;
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--color-primary);
+  }
+  
+  .footer__text {
+    font-size: 1rem;
+    max-width: 600px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .footer__links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer__link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+  }
+  
+  .footer__link:hover {
+    color: var(--color-primary);
+  }
+  
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .footer__copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .footer__brand {
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+  
+  .footer__socials {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer__social-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+  }
+  
+  .footer__social-link:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer__content {
+      gap: 15px;
+    }
+  
+    .footer__links {
+      flex-direction: column;
+    }
+  
+    .footer__socials {
+      gap: 10px;
+    }
+  }
+  

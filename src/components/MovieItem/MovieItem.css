@@ -1,49 +1,107 @@
+/* MovieItem.css */
 @import '../../variables.css';
 
+/* Base Movie Item Styles */
 .movie-item {
-    display: flex;
-    background-color: var(--color-card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed);
+  display: flex;
+  background-color: var(--color-card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
 }
 
 .movie-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
+/* Poster */
 .movie-item__poster {
-    width: 120px;
-    height: 180px;
-    object-fit: cover;
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
 }
 
+/* Info Section */
 .movie-item__info {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .movie-item__title {
-    font-size: 18px;
-    color: var(--color-text);
-    margin: 0 0 10px 0;
+  font-size: 18px;
+  color: var(--color-text);
+  margin: 0 0 10px 0;
 }
 
+/* Add Button */
 .movie-item__add-button {
-    border: none;
-    background-color: var(--color-button);
-    padding: 10px;
-    color: #FFFFFF;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color var(--transition-speed);
+  border: none;
+  background-color: var(--color-button);
+  padding: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
 }
 
 .movie-item__add-button:hover {
-    background-color: var(--color-button-hover);
+  background-color: var(--color-button-hover);
+}
+
+/* --------------------------------- */
+/*      RESPONSIVE MEDIA QUERIES     */
+/* --------------------------------- */
+
+/* For smaller phones (<= 425px), we can slightly reduce fonts/padding */
+@media (max-width: 425px) {
+  .movie-item__title {
+    font-size: 15px;
+  }
+  .movie-item__add-button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* For extra-small devices (<= 320px), reduce more if needed */
+@media (max-width: 320px) {
+  .movie-item__poster {
+    max-width: 200px;   /* optional limit for tiny screens */
+  }
+  .movie-item__title {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .movie-item__add-button {
+    font-size: 12px;
+  }
+  
+}
+
+/* 2K & beyond (min-width: 2000px) */
+@media (min-width: 2000px) {
+  .movie-item {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .movie-item__poster {
+    width: 180px;
+    height: 270px;
+  }
+  .movie-item__info {
+    padding: 24px;
+  }
+  .movie-item__title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .movie-item__add-button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
 }
